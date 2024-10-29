@@ -18,7 +18,7 @@ const allowedOrigins =
     : ["http://localhost:5173"];
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: allowedOrigins,
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -46,13 +46,17 @@ app.use("/campaign", campaignRoutes);
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 // const SERVER_PORT = process.env.SERVER_PORT || 1337;
 
 // app.listen(SERVER_PORT, () => {
 //   console.log("Server started on: " + SERVER_PORT);
 // });
+
 if (process.env.VERCEL !== "1") {
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 1337;
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
 
