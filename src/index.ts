@@ -49,15 +49,15 @@ app.use("/auth", authRouter);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-// const SERVER_PORT = process.env.SERVER_PORT || 1337;
+const SERVER_PORT = process.env.SERVER_PORT || 1337;
 
-// app.listen(SERVER_PORT, () => {
-//   console.log("Server started on: " + SERVER_PORT);
-// });
+app.listen(SERVER_PORT, () => {
+  console.log("Server started on: " + SERVER_PORT);
+});
 
-if (process.env.VERCEL !== "1") {
-  const PORT = process.env.PORT || 1337;
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-}
+// if (process.env.VERCEL !== "1") {
+//   const PORT = process.env.PORT || 1337;
+//   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// }
 
 export default app;
