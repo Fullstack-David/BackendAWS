@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.ts"
+    "start": "node dist/index.js",
+    "start:prod": "npm run build && node dist/index.js",
+    "prisma:generate": "prisma generate",
+    "vercel-build": "prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -48,5 +51,8 @@
     "prisma": "^5.20.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
